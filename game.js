@@ -18,7 +18,7 @@ $(document).click(function () {
     currentSister = sisterNames[sisterIndex];
 
     $("h1").text("C'est à " + currentSister + " de jouer");
-    setTimeout(nextSequence, 2000);
+    setTimeout(nextSequence, 1000);
   }
 });
 
@@ -68,7 +68,9 @@ function checkAnswer(currentLevel) {
   } else {
     console.log("wrong");
     gameOver();
-    startOver();
+    setTimeout(function () {
+      startOver();
+    }, 1000);
     userClickedPattern = [];
   }
 }
@@ -80,7 +82,7 @@ function gameOver() {
     $("body").removeClass("game-over");
   }, 200);
   $("h1").text(
-    "Tu t'es trompée !!!! 😆😆😆 Appuie sur un touche pour recommencer le jeu"
+    "Tu t'es trompée !!!! 😆😆😆 Appuie sur l'écran pour relancer une partie"
   );
 }
 

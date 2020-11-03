@@ -6,7 +6,7 @@ var level = 0;
 var sisterNames = ["Mimie", "ChloChlo"];
 var sisterIndex = -1;
 
-$(document).keydown(function () {
+$(document).click(function () {
   if (!gameStarted) {
     gameStarted = true;
 
@@ -23,13 +23,14 @@ $(document).keydown(function () {
 });
 
 $(".btn").click(function () {
-  var userChosenColour = $(this).attr("id");
-  userClickedPattern.push(userChosenColour);
-  animatePress(userChosenColour);
-  console.log(userClickedPattern);
-  playsound(userChosenColour);
-
-  checkAnswer(userClickedPattern.length - 1);
+  if (gameStarted) {
+    var userChosenColour = $(this).attr("id");
+    userClickedPattern.push(userChosenColour);
+    animatePress(userChosenColour);
+    console.log(userClickedPattern);
+    playsound(userChosenColour);
+    checkAnswer(userClickedPattern.length - 1);
+  }
 });
 
 function nextSequence() {
